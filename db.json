@@ -378,6 +378,12 @@
       "password": "$2a$10$3KMKRuJjBypjJLUUGVf8nu.WzEfT2X4GQUCCo9dpp7aSSpImwc01.",
       "createdAt": 1712473977458,
       "id": 11
+    },
+    {
+      "email": "tsho47@gmail.com",
+      "password": "$2a$10$hQ41L6NSNxuL8vDMJqiKMu/TqB0BByRO7o/hseLwtzkSXP/CM7kVK",
+      "createdAt": 1712474628876,
+      "id": 12
     }
   ]
 }

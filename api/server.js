@@ -4,11 +4,7 @@
 // const server = jsonServer.create()
 
 // // Uncomment to allow write operations
-// // const fs = require('fs')
-// // const path = require('path')
-// // const filePath = path.join('db.json')
-// // const data = fs.readFileSync(filePath, "utf-8");
-// // const db = JSON.parse(data);
+
 // // const router = jsonServer.router(db)
 
 // // Comment out to allow write operations
@@ -33,8 +29,14 @@ const jsonServer = require("json-server");
 const queryString = require("query-string");
 const auth = require("json-server-auth");
 
-const server = jsonServer.create(); 
-const router = jsonServer.router("db.json");
+const server = jsonServer.create();
+
+const fs = require("fs");
+const path = require("path");
+const filePath = path.join("db.json");
+const data = fs.readFileSync(filePath, "utf-8");
+const db = JSON.parse(data);
+const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
 
 // Set default middlewares (logger, static, cors and no-cache)
@@ -86,6 +88,13 @@ router.render = (req, res) => {
 server.db = router.db;
 // You must apply the auth middleware before the router
 server.use(auth);
+
+server.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+    "/blog/:resource/:id/show": "/:resource/:id",
+  })
+);
 server.use(router);
 
 const port = process.env.PORT || 5000;
