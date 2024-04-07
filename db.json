@@ -372,6 +372,12 @@
       "password": "$2a$10$JZmcbsvg3vGpKoNCb36gf.WaWvsagcp5xURm0e.batstEPIq37lXq",
       "createdAt": 1712473938772,
       "id": 10
+    },
+    {
+      "email": "testaaaaasd@gmail.com",
+      "password": "$2a$10$3KMKRuJjBypjJLUUGVf8nu.WzEfT2X4GQUCCo9dpp7aSSpImwc01.",
+      "createdAt": 1712473977457,
+      "id": 11
     }
   ]
 }
