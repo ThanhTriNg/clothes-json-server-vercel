@@ -366,6 +366,12 @@
       "password": "$2a$10$1nxF87eEc6sfTrAN3VUvJOEy/b63w1jRb40a8fdGMEFWpP0diVDvm",
       "createdAt": 1712242395341,
       "id": 9
+    },
+    {
+      "email": "testasd@gmail.com",
+      "password": "$2a$10$JZmcbsvg3vGpKoNCb36gf.WaWvsagcp5xURm0e.batstEPIq37lXq",
+      "createdAt": 1712473938772,
+      "id": 10
     }
   ]
 }
