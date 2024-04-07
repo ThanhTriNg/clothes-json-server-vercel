@@ -36,8 +36,10 @@ const path = require("path");
 const filePath = path.join("db.json");
 const data = fs.readFileSync(filePath, "utf-8");
 const db = JSON.parse(data);
+
 const router = jsonServer.router(db);
 const middlewares = jsonServer.defaults();
+server.db = router.db;
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
@@ -84,17 +86,9 @@ router.render = (req, res) => {
   res.jsonp(res.locals.data);
 };
 
-// /!\ Bind the router db to the app
-server.db = router.db;
-// You must apply the auth middleware before the router
 server.use(auth);
 
-server.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-    "/blog/:resource/:id/show": "/:resource/:id",
-  })
-);
+
 server.use(router);
 
 const port = process.env.PORT || 5000;
